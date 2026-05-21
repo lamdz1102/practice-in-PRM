@@ -74,56 +74,75 @@
 
 // Exercise 2: User Repository with JSON
 
-class User {
-  final String name;
-  final String email;
+// class User {
+//   final String name;
+//   final String email;
+//
+//   User({
+//     required this.name,
+//     required this.email,
+//   });
+//
+//   // Convert JSON map to User object
+//   factory User.fromJson(Map<String, dynamic> json) {
+//     return User(
+//       name: json['name'],
+//       email: json['email'],
+//     );
+//   }
+// }
+//
+// class UserRepository {
+//   // Simulate fetching JSON data from API
+//   Future<List<User>> getUsers() async {
+//     await Future.delayed(Duration(seconds: 1));
+//
+//     final List<Map<String, dynamic>> jsonData = [
+//       {
+//         'name': 'Anna',
+//         'email': 'anna@gmail.com',
+//       },
+//       {
+//         'name': 'Ben',
+//         'email': 'ben@gmail.com',
+//       },
+//       {
+//         'name': 'Chris',
+//         'email': 'chris@gmail.com',
+//       },
+//     ];
+//
+//     return jsonData.map((json) => User.fromJson(json)).toList();
+//   }
+// }
+//
+// void main() async {
+//   final repo = UserRepository();
+//
+//   print('Exercise 2: User Repository with JSON');
+//
+//   final users = await repo.getUsers();
+//
+//   for (var user in users) {
+//     print('${user.name} - ${user.email}');
+//   }
+// }
 
-  User({
-    required this.name,
-    required this.email,
+import 'dart:async';
+
+void main() {
+  runEx3();
+}
+
+// Exercise 3: Async + Microtask Debugging
+void runEx3() {
+  print('Exercise 3: Async + Microtask Debugging');
+  print('A - Start synchronous code');
+  scheduleMicrotask(() {
+    print('C - Microtask runs before Future event');
   });
-
-  // Convert JSON map to User object
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      name: json['name'],
-      email: json['email'],
-    );
-  }
-}
-
-class UserRepository {
-  // Simulate fetching JSON data from API
-  Future<List<User>> getUsers() async {
-    await Future.delayed(Duration(seconds: 1));
-
-    final List<Map<String, dynamic>> jsonData = [
-      {
-        'name': 'Anna',
-        'email': 'anna@gmail.com',
-      },
-      {
-        'name': 'Ben',
-        'email': 'ben@gmail.com',
-      },
-      {
-        'name': 'Chris',
-        'email': 'chris@gmail.com',
-      },
-    ];
-
-    return jsonData.map((json) => User.fromJson(json)).toList();
-  }
-}
-
-void main() async {
-  final repo = UserRepository();
-
-  print('Exercise 2: User Repository with JSON');
-
-  final users = await repo.getUsers();
-
-  for (var user in users) {
-    print('${user.name} - ${user.email}');
-  }
+  Future(() {
+    print('D - Future runs from event queue');
+  });
+  print('B - End synchronous code');
 }
