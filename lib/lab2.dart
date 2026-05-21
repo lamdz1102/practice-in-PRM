@@ -22,34 +22,34 @@
 //   print(points);
 //   print("score:   ${points["Math"]}");
 // }
-
-Excercise 3
-import 'dart:io';
-void main(){
-  var day = "Monday";
-  switch(day){
-    case  Monday :
-    print('Thu 2');
-    break;
-    default:
-      print('Khong ton tai thu nay');
-  }
-  print('Nhập điểm: ');
-  int score=int.parse(stdin.readLineSync()!);
-  if(score<6)
-  print('Ban da truot mon');
-  else
-    print('Ban da qua mon');
-  int i;
-  for(i=0;i<4;){
-    print(i);
-    i++;
-  }
-  List<int> nums = [1,2,3];
-  for(var x in nums){
-    print(x);
-  }
-}
+//
+// Excercise 3
+// import 'dart:io';
+// void main(){
+//   var day = "Monday";
+//   switch(day){
+//     case  Monday :
+//     print('Thu 2');
+//     break;
+//     default:
+//       print('Khong ton tai thu nay');
+//   }
+//   print('Nhập điểm: ');
+//   int score=int.parse(stdin.readLineSync()!);
+//   if(score<6)
+//   print('Ban da truot mon');
+//   else
+//     print('Ban da qua mon');
+//   int i;
+//   for(i=0;i<4;){
+//     print(i);
+//     i++;
+//   }
+//   List<int> nums = [1,2,3];
+//   for(var x in nums){
+//     print(x);
+//   }
+// }
 
 //Excercise 4
 // class Car {
