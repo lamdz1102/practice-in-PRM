@@ -128,21 +128,39 @@
 //   }
 // }
 
-import 'dart:async';
+// import 'dart:async';
+//
+// void main() {
+//   runEx3();
+// }
+//
+// // Exercise 3: Async + Microtask Debugging
+// void runEx3() {
+//   print('Exercise 3: Async + Microtask Debugging');
+//   print('A - Start synchronous code');
+//   scheduleMicrotask(() {
+//     print('C - Microtask runs before Future event');
+//   });
+//   Future(() {
+//     print('D - Future runs from event queue');
+//   });
+//   print('B - End synchronous code');
+// }
 
+// Exercise 4: Stream Transformation
 void main() {
-  runEx3();
+  runEx4();
 }
+void runEx4(){
+  print('Exercise 4: Stream Transformation');
 
-// Exercise 3: Async + Microtask Debugging
-void runEx3() {
-  print('Exercise 3: Async + Microtask Debugging');
-  print('A - Start synchronous code');
-  scheduleMicrotask(() {
-    print('C - Microtask runs before Future event');
+  Stream.fromIterable([1, 2, 3, 4, 5])
+  // Transform each number to its square
+      .map((number) => number * number)
+  // Keep only even squared numbers
+      .where((number) => number % 2 == 0)
+  // Listen and print each emitted value
+      .listen((value) {
+    print('Emitted value: $value');
   });
-  Future(() {
-    print('D - Future runs from event queue');
-  });
-  print('B - End synchronous code');
 }
