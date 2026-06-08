@@ -52,26 +52,34 @@
 // }
 
 //Lab 5
+// import 'package:flutter/material.dart';
+// import 'lab 5/home_screen.dart';
+//
+// void main() {
+//   runApp(const MovieApp());
+// }
+//
+// class MovieApp extends StatelessWidget {
+//   const MovieApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Movie App',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         primarySwatch: Colors.deepPurple,
+//         useMaterial3: true,
+//       ),
+//       home: const HomeScreen(),
+//     );
+//   }
+// }
+
+//Lab 6
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import 'lab 6/lab6.dart';
 
 void main() {
-  runApp(const MovieApp());
-}
-
-class MovieApp extends StatelessWidget {
-  const MovieApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Movie App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        useMaterial3: true,
-      ),
-      home: const HomeScreen(),
-    );
-  }
+  runApp(const ResponsiveMovieApp());
 }
