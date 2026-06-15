@@ -77,9 +77,34 @@
 // }
 
 //Lab 6
+// import 'package:flutter/material.dart';
+// import 'lab 6/lab6.dart';
+//
+// void main() {
+//   runApp(const ResponsiveMovieApp());
+// }
+
+//Lab 7
 import 'package:flutter/material.dart';
-import 'lab 6/lab6.dart';
+import 'lab 7/lab 7.1.dart';
 
 void main() {
-  runApp(const ResponsiveMovieApp());
+  runApp(const Lab7App());
+}
+
+class Lab7App extends StatelessWidget {
+  const Lab7App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Lab 7.1 - Basic Registration Form',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.blue,
+      ),
+      home: const SignupScreen(),
+    );
+  }
 }
