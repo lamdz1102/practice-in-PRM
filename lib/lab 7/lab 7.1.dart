@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class Lab71BasicFormScreen extends StatefulWidget {
+  const Lab71BasicFormScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<Lab71BasicFormScreen> createState() => _Lab71BasicFormScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _Lab71BasicFormScreenState extends State<Lab71BasicFormScreen> {
   final _formKey = GlobalKey<FormState>();
 
   String _fullName = '';
@@ -30,25 +30,23 @@ class _SignupScreenState extends State<SignupScreen> {
       ),
     );
 
-    print('Full name: $_fullName');
-    print('Email: $_email');
-    print('Password: $_password');
-    print('Confirm password: $_confirmPassword');
+    debugPrint('Full name: $_fullName');
+    debugPrint('Email: $_email');
+    debugPrint('Password: $_password');
+    debugPrint('Confirm password: $_confirmPassword');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Signup'),
+        title: const Text('Lab 7.1 - Basic Form'),
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-
         child: Form(
           key: _formKey,
-
           child: ListView(
             children: [
               TextFormField(
@@ -137,7 +135,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   if (value == null || value.isEmpty) {
                     return 'Confirm password is required';
                   }
-
                   return null;
                 },
                 onSaved: (value) {
