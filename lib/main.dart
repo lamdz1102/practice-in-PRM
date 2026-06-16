@@ -1,92 +1,9 @@
-//LAB 4
-// import 'package:flutter/material.dart';
-// import 'app_structure_demo.dart';
-//
-// void main() {
-//   runApp(const MyApp());
-// }
-//
-// // Hàm main dùng để chạy thử Exercise 4
-// class MyApp extends StatefulWidget {
-//   const MyApp({super.key});
-//
-//   @override
-//   State<MyApp> createState() => _MyAppState();
-// }
-//
-// class _MyAppState extends State<MyApp> {
-//   // Biến kiểm tra Dark Mode đang bật hay tắt
-//   bool isDarkMode = false;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//
-//       // Theme sáng
-//       theme: ThemeData(
-//         brightness: Brightness.light,
-//         primarySwatch: Colors.blue,
-//         useMaterial3: true,
-//       ),
-//
-//       // Theme tối
-//       darkTheme: ThemeData(
-//         brightness: Brightness.dark,
-//         useMaterial3: true,
-//       ),
-//
-//       // Điều khiển chế độ theme
-//       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-//
-//       home: AppStructureDemo(
-//         isDarkMode: isDarkMode,
-//         onThemeChanged: (value) {
-//           setState(() {
-//             isDarkMode = value;
-//           });
-//         },
-//       ),
-//     );
-//   }
-// }
-
-//Lab 5
-// import 'package:flutter/material.dart';
-// import 'lab 5/home_screen.dart';
-//
-// void main() {
-//   runApp(const MovieApp());
-// }
-//
-// class MovieApp extends StatelessWidget {
-//   const MovieApp({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Movie App',
-//       debugShowCheckedModeBanner: false,
-//       theme: ThemeData(
-//         primarySwatch: Colors.deepPurple,
-//         useMaterial3: true,
-//       ),
-//       home: const HomeScreen(),
-//     );
-//   }
-// }
-
-//Lab 6
-// import 'package:flutter/material.dart';
-// import 'lab 6/lab6.dart';
-//
-// void main() {
-//   runApp(const ResponsiveMovieApp());
-// }
-
-//Lab 7
 import 'package:flutter/material.dart';
+
 import 'lab 7/lab 7.1.dart';
+import 'lab 7/lab 7.2.dart';
+import 'lab 7/lab 7.3.dart';
+import 'lab 7/lab 7.4.dart';
 
 void main() {
   runApp(const Lab7App());
@@ -98,13 +15,104 @@ class Lab7App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lab 7.1 - Basic Registration Form',
+      title: 'Lab 7 - Forms and Validation',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
         colorSchemeSeed: Colors.blue,
       ),
-      home: const SignupScreen(),
+      home: const Lab7HomeScreen(),
+    );
+  }
+}
+
+class Lab7HomeScreen extends StatelessWidget {
+  const Lab7HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Lab 7 - Forms and Validation'),
+        centerTitle: true,
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const Text(
+            'Choose a lab exercise',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          const SizedBox(height: 16),
+
+          _LabMenuCard(
+            title: 'Lab 7.1',
+            subtitle: 'Basic Registration Form',
+            icon: Icons.assignment,
+            screen: const Lab71BasicFormScreen(),
+          ),
+
+          _LabMenuCard(
+            title: 'Lab 7.2',
+            subtitle: 'Validation Rules & Password Strength',
+            icon: Icons.verified_user,
+            screen: const Lab72ValidationRulesScreen(),
+          ),
+
+          _LabMenuCard(
+            title: 'Lab 7.3',
+            subtitle: 'Focus & Keyboard Management',
+            icon: Icons.keyboard,
+            screen: const Lab73FocusKeyboardScreen(),
+          ),
+
+          _LabMenuCard(
+            title: 'Lab 7.4',
+            subtitle: 'Async Email Validation',
+            icon: Icons.cloud_sync,
+            screen: const Lab74AsyncValidationScreen(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _LabMenuCard extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final Widget screen;
+
+  const _LabMenuCard({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.screen,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: ListTile(
+        leading: Icon(icon),
+        title: Text(title),
+        subtitle: Text(subtitle),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => screen,
+            ),
+          );
+        },
+      ),
     );
   }
 }
