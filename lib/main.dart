@@ -237,120 +237,199 @@
 // }
 
 //Lab 8
+// import 'package:flutter/material.dart';
+//
+// import 'lab 8/Lab 8.1.dart';
+// import 'lab 8/Lab 8.2.dart';
+// import 'lab 8/Lab 8.3.dart';
+// import 'lab 8/Lab 8.4.dart';
+//
+// void main() {
+//   runApp(const Lab8App());
+// }
+//
+// class Lab8App extends StatelessWidget {
+//   const Lab8App({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Lab 8 - RESTful APIs & JSON',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         useMaterial3: true,
+//         colorSchemeSeed: Colors.blue,
+//       ),
+//       home: const Lab8HomeScreen(),
+//     );
+//   }
+// }
+//
+// class Lab8HomeScreen extends StatelessWidget {
+//   const Lab8HomeScreen({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Lab 8 - APIs & JSON'),
+//         centerTitle: true,
+//       ),
+//       body: ListView(
+//         padding: const EdgeInsets.all(16),
+//         children: [
+//           const Text(
+//             'Choose a Lab 8 exercise',
+//             style: TextStyle(
+//               fontSize: 22,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+//
+//           const SizedBox(height: 16),
+//
+//           _LabMenuCard(
+//             title: 'Lab 8.1',
+//             subtitle: 'Simple GET Request',
+//             icon: Icons.download,
+//             screen: const Lab81SimpleGetScreen(),
+//           ),
+//
+//           _LabMenuCard(
+//             title: 'Lab 8.2',
+//             subtitle: 'JSON Model & Detail Screen',
+//             icon: Icons.data_object,
+//             screen: const Lab82JsonModelScreen(),
+//           ),
+//
+//           _LabMenuCard(
+//             title: 'Lab 8.3',
+//             subtitle: 'POST Request & Error Handling',
+//             icon: Icons.upload,
+//             screen: const Lab83PostRequestScreen(),
+//           ),
+//
+//           _LabMenuCard(
+//             title: 'Lab 8.4',
+//             subtitle: 'ApiService Pattern',
+//             icon: Icons.api,
+//             screen: const Lab84ApiServiceScreen(),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+//
+// class _LabMenuCard extends StatelessWidget {
+//   final String title;
+//   final String subtitle;
+//   final IconData icon;
+//   final Widget screen;
+//
+//   const _LabMenuCard({
+//     required this.title,
+//     required this.subtitle,
+//     required this.icon,
+//     required this.screen,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       margin: const EdgeInsets.only(bottom: 12),
+//       child: ListTile(
+//         leading: Icon(icon),
+//         title: Text(title),
+//         subtitle: Text(subtitle),
+//         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+//         onTap: () {
+//           Navigator.push(
+//             context,
+//             MaterialPageRoute(
+//               builder: (_) => screen,
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+//Lab 8B
+// import 'package:flutter/material.dart';
+//
+// import 'lab 8B/weather_screen.dart';
+//
+// void main() {
+//   runApp(const Lab8BApp());
+// }
+//
+// class Lab8BApp extends StatelessWidget {
+//   const Lab8BApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Lab 8B - Weather Companion',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         useMaterial3: true,
+//         colorSchemeSeed: Colors.blue,
+//       ),
+//       home: const WeatherScreen(),
+//     );
+//   }
+// }
+//Lab 9
 import 'package:flutter/material.dart';
 
-import 'lab 8/Lab 8.1.dart';
-import 'lab 8/Lab 8.2.dart';
-import 'lab 8/Lab 8.3.dart';
-import 'lab 8/Lab 8.4.dart';
+import 'lab 9/lab 9.1.dart';
+import 'lab 9/lab 9.2.dart';
+import 'lab 9/lab 9.3.dart';
 
 void main() {
-  runApp(const Lab8App());
+  runApp(const Lab9App());
 }
 
-class Lab8App extends StatelessWidget {
-  const Lab8App({super.key});
+class Lab9App extends StatelessWidget {
+  const Lab9App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lab 8 - RESTful APIs & JSON',
+      home: const Lab9Home(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.blue,
-      ),
-      home: const Lab8HomeScreen(),
     );
   }
 }
 
-class Lab8HomeScreen extends StatelessWidget {
-  const Lab8HomeScreen({super.key});
+class Lab9Home extends StatelessWidget {
+  const Lab9Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Lab 8 - APIs & JSON'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Lab 9 - JSON Storage")),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const Text(
-            'Choose a Lab 8 exercise',
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          const SizedBox(height: 16),
-
-          _LabMenuCard(
-            title: 'Lab 8.1',
-            subtitle: 'Simple GET Request',
-            icon: Icons.download,
-            screen: const Lab81SimpleGetScreen(),
-          ),
-
-          _LabMenuCard(
-            title: 'Lab 8.2',
-            subtitle: 'JSON Model & Detail Screen',
-            icon: Icons.data_object,
-            screen: const Lab82JsonModelScreen(),
-          ),
-
-          _LabMenuCard(
-            title: 'Lab 8.3',
-            subtitle: 'POST Request & Error Handling',
-            icon: Icons.upload,
-            screen: const Lab83PostRequestScreen(),
-          ),
-
-          _LabMenuCard(
-            title: 'Lab 8.4',
-            subtitle: 'ApiService Pattern',
-            icon: Icons.api,
-            screen: const Lab84ApiServiceScreen(),
-          ),
+          _menu(context, "9.1 Read JSON Assets", const Lab91()),
+          _menu(context, "9.2 Local Storage", const Lab92()),
+          _menu(context, "9.3 CRUD + Search", const Lab93()),
         ],
       ),
     );
   }
-}
 
-class _LabMenuCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final IconData icon;
-  final Widget screen;
-
-  const _LabMenuCard({
-    required this.title,
-    required this.subtitle,
-    required this.icon,
-    required this.screen,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _menu(BuildContext c, String title, Widget page) {
     return Card(
-      margin: const EdgeInsets.only(bottom: 12),
       child: ListTile(
-        leading: Icon(icon),
         title: Text(title),
-        subtitle: Text(subtitle),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => screen,
-            ),
-          );
-        },
+        trailing: const Icon(Icons.arrow_forward),
+        onTap: () => Navigator.push(
+          c,
+          MaterialPageRoute(builder: (_) => page),
+        ),
       ),
     );
   }
